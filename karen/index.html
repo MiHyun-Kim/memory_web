@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+<html lang="en">
+  
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device">
+<title>our DOLLHOUSE</title>
+<link rel="stylesheet" href="style.css">
+ </head>
+
+<body>
+
+<div class="carousel">
+  <div class="group">
+    <div class="row">
+      <div class="card">D</div>
+     <div class="card">O</div>
+     <div class="card">L</div>
+     <div class="card">L</div>
+    </div>
+  </div> 
+  <div aria-hidden class="group">
+    <div class="row">
+      <div class="card">D</div>
+     <div class="card">O</div>
+     <div class="card">L</div>
+     <div class="card">L</div>
+    </div>
+  </div> 
+</div>
+<div class="carousel">
+  <div class="group">
+  <div class="row">
+     <div class="card">H</div>
+     <div class="card">O</div>
+      <div class="card">U</div>
+      <div class="card">S</div>
+      <div class="card">E</div>
+    </div>
+  </div>
+  <div aria-hidden class="group">
+  <div class="row">
+     <div class="card">H</div>
+     <div class="card">O</div>
+      <div class="card">U</div>
+      <div class="card">S</div>
+      <div class="card">E</div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="word"> 
+<div class="memory-node node1">
+  <div class="memory-label">THE OBJECT</div>
+  <div class="memory-text">
+  THE OBJECT I ASSOCIATE MOST WITH MY CHILDHOOD IS MY DOLLHOUSE. IT WAS A SMALL, PORTABLE PLASTIC COTTAGE—LESS THAN A FOOT TALL—WITH COLORFUL IMAGERY, TINY FURNITURE, AND ROOMS THAT FOLDED OPEN AND CLOSED.
+  </div>
+</div>
+
+<div class="memory-node node2">
+  <div class="memory-label">BEFORE IT WAS MINE</div>
+  <div class="memory-text">
+  LONG BEFORE I PLAYED WITH IT, IT HAD BELONGED TO MY OLDEST SISTER, WHO USED IT UNTIL SHE OUTGREW IT. THEN IT WAS PASSED DOWN TO MY OTHER SISTER.
+  </div>
+</div>
+
+<div class="memory-node node3">
+  <div class="memory-label">MARKS<br>OF USE</div>
+  <div class="memory-text">
+  BY THE TIME IT REACHED ME, THE DOLLHOUSE ALREADY CARRIED SIGNS OF ITS HISTORY—STICKERS ON THE WALLS AND A FEW SCRATCHES LEFT FROM YEARS OF PLAY.
+  </div>
+</div>
+
+<div class="memory-node node4">
+  <div class="memory-label">SHARED CHILDHOODS</div>
+  <div class="memory-text">
+  WHEN IT FINALLY BECAME MINE, THE DOLLHOUSE HELD THE QUIET HISTORY OF MORE THAN ONE CHILDHOOD.
+  </div>
+</div>
+
+<div class="memory-node node5">
+  <div class="memory-label">BEDROOM CORNER</div>
+  <div class="memory-text">
+  THE DOLLHOUSE LIVED IN THE CORNER OF MY BEDROOM, ALWAYS EASY TO REACH. IT BECAME A SPACE OF COMFORT AND DISTRACTION.
+  </div>
+</div>
+
+<div class="memory-node node6">
+  <div class="memory-label">PORTABLE WORLD</div>
+  <div class="memory-text">
+  BECAUSE IT WAS PORTABLE, I OFTEN CARRIED IT FROM ROOM TO ROOM, OR BROUGHT IT WITH ME TO RELATIVES’ HOMES, SETTING IT UP WHEREVER I COULD FIND SPACE.
+  </div>
+</div>
+
+<div class="memory-node node7">
+  <div class="memory-label">MISSING PIECES</div>
+  <div class="memory-text">
+  OVER TIME, MANY OF THE ORIGINAL FURNITURE PIECES AND DOLLS DISAPPEARED OR WERE FORGOTTEN.
+  </div>
+</div>
+
+<div class="memory-node node8">
+  <div class="memory-label">IMAGINED STORIES</div>
+  <div class="memory-text">
+  EVEN WITHOUT EVERYTHING IT ONCE CAME WITH, THE DOLLHOUSE NEVER FELT INCOMPLETE. I SPENT HOURS OPENING ITS WALLS, ARRANGING WHAT REMAINED, AND INVENTING STORIES FOR THE DOLLS WHO LIVED INSIDE.
+  </div>
+</div>
+
+<div class="memory-node node9">
+  <div class="memory-label">WHAT IT BECAME</div>
+  <div class="memory-text">
+  THAT LITTLE HAND-ME-DOWN HOUSE WAS NOT JUST A TOY. IT BECAME AN EARLY LESSON IN IMAGINATION AND CREATIVE POSSIBILITY.
+  </div>
+</div>
+
+</div>
+
+<!-- FLOATING IMAGE LAYER -->
+<div class="image-layer">
+<img src="images/doll_house_2.jpg" class="floating-img" style="top:35%; left:22%; transform: rotate(8deg);">
+<img src="images/doll_house_1.jpg" class="floating-img" style="top:10%; left:4%; transform: rotate(12deg);">
+<img src="images/doll_house_3.jpg" class="floating-img" style="top:70%; left:15%; transform: rotate(-5deg);">
+<img src="images/doll_house_4.jpg" class="floating-img" style="top:55%; left:65%; transform: rotate(15deg);">
+<img src="images/doll_house_5.jpg" class="floating-img" style="top:18%; left:72%; transform: rotate(-18deg);">
+<img src="images/doll_house_6.jpg" class="floating-img" style="top:80%; left:40%; transform: rotate(6deg);">
+<img src="images/doll_house_7.jpg" class="floating-img" style="top:42%; left:85%; transform: rotate(-10deg);">
+<img src="images/doll_house_8.jpg" class="floating-img" style="top:0%; left:46%; transform: rotate(12deg);">
+</div>
+
+<script>
+const images = document.querySelectorAll('.floating-img');
+
+document.addEventListener('mousemove', (e) => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+
+  const deltaX = (mouseX - centerX) / centerX; // -1 to 1
+  const deltaY = (mouseY - centerY) / centerY; // -1 to 1
+
+  images.forEach((img, index) => {
+    const movement = 10 + index * 2; // control intensity
+    img.style.transform = `translate(${deltaX * movement}px, ${deltaY * movement}px) rotate(${parseFloat(img.style.transform.replace(/[^\d.-]/g, ''))}deg)`;
+  });
+});
+</script>
+
+
+</body>
