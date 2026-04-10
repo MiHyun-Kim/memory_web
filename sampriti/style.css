@@ -1,0 +1,406 @@
+/* =====================================================
+   STILL SMELLS LIKE HOME — Stylesheet
+   Font file: fonts/glass-shards.otf  (place next to this CSS)
+   ===================================================== */
+
+@font-face {
+  font-family: 'GlassShards';
+  src: url('fonts/glass-shards.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --col1: rgb(225, 120, 75);
+  --col2: rgb(161, 107, 62);
+  --col3: rgb(73, 109, 36);
+  --col8: rgb(244, 90, 126);
+}
+
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+
+body {
+  font-family: 'GlassShards', 'Montserrat', sans-serif;
+  color: #f0f2f4;
+  overflow-x: hidden;
+  background: #0e1014;
+  cursor: none;
+}
+
+/* ── GLOBAL OVERLAY LAYERS ── */
+#chalkCanvas {
+  position: fixed; inset: 0;
+  z-index: 50; pointer-events: none;
+  width: 100%; height: 100%;
+}
+#glassCursor {
+  position: fixed; width: 72px; height: 72px; border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  box-shadow: inset 0 0 18px rgba(255,255,255,0.1), 0 2px 16px rgba(0,0,0,0.4);
+  backdrop-filter: blur(0px) brightness(1.25) saturate(1.1);
+  -webkit-backdrop-filter: blur(0px) brightness(1.25) saturate(1.1);
+  overflow: hidden;
+  transition: width 0.15s ease, height 0.15s ease;
+}
+#glassCursor::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, rgba(255,255,255,0.18) 0%, transparent 65%);
+}
+#condensationLayer {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden;
+}
+.c-drop {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(200,225,240,0.6), rgba(180,210,230,0.06) 70%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.28);
+  animation: drip linear infinite;
+}
+@keyframes drip {
+  0%   { transform: translateY(0) scaleY(1); }
+  60%  { transform: translateY(0) scaleY(1); }
+  80%  { transform: translateY(0) scaleY(1.3); border-radius: 50% 50% 60% 60%; }
+  100% { transform: translateY(28px) scaleY(0.75); opacity: 0; }
+}
+
+/* ── SCROLL BAR ── */
+#scroll-bar {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--col1), var(--col8));
+  z-index: 999; transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════
+   TITLE / HEADER SECTION
+═══════════════════════════════════════════ */
+.title-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 3;
+}
+
+/* Frosted glass overlay */
+.title-section::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(170deg,
+    rgba(30,34,40,0.82) 0%,
+    rgba(18,20,26,0.75) 50%,
+    rgba(10,12,16,0.85) 100%);
+}
+.title-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 40px 6vw;
+}
+
+h1.title {
+  font-family: 'GlassShards', 'Montserrat', sans-serif;
+  font-size: clamp(48pt, 11vw, 128pt);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  cursor: default;
+  animation: titleReveal 1.2s cubic-bezier(0.16,1,0.3,1) both;
+  text-shadow:
+    0 2px 40px rgba(255,255,255,0.15),
+    0 4px 80px rgba(200,220,255,0.08);
+}
+@keyframes titleReveal {
+  0%   { opacity: 0; transform: scale(0.5); letter-spacing: 0.18em; }
+  55%  { opacity: 1; transform: scale(1.2); letter-spacing: 0.015em; }
+  80%  { transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1.0); letter-spacing: 0.02em; }
+}
+  to   { opacity: 1; transform: translateY(0) scale(1); letter-spacing: 0.02em; }
+}
+h1.title:hover { font-size: clamp(50pt, 12vw, 140pt); transition: font-size 0.4s ease; }
+
+.byline {
+  font-family: 'GlassShards', 'Montserrat', sans-serif;
+  font-size: 1rem; letter-spacing: 0.28em;
+  color: rgba(255,255,255,0.55); margin-top: 20px;
+  animation: fadeUp 1.4s 0.4s both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.home-btn {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+  margin-top: 28px; background: none; border: none; cursor: pointer;
+  color: var(--col2); transition: color 0.3s, transform 0.3s;
+  animation: fadeUp 1.6s 0.6s both;
+}
+.home-btn svg { width: 36px; height: 36px; filter: drop-shadow(0 0 6px rgba(225,120,75,0.4)); }
+.home-btn:hover { color: var(--col1); transform: translateY(-3px); }
+.home-btn:hover svg { filter: drop-shadow(0 0 12px rgba(225,120,75,0.85)); transform: scale(1.15); }
+.home-btn-label {
+  font-size: 0.5rem; letter-spacing: 0.24em; opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════
+   CONTENT SECTIONS (FULL SCREEN)
+═══════════════════════════════════════════ */
+.glass-card {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 8vw 80px 8vw;
+  border-radius: 0;
+  z-index: 3;
+}
+
+/* Full-bleed background image per card */
+.card-bg {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+.card-bg-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* card-specific tints */
+.home-card   .card-bg-photo { opacity: 0.68; filter: saturate(0.88) brightness(1.02); object-position: center center; }
+.memories-card .card-bg-photo { opacity: 0.78; object-fit: cover; object-position: center 55%; filter: saturate(1.05) brightness(0.95); }
+.windows-card  .card-bg-photo { opacity: 0.68; filter: saturate(0.82) brightness(0.98); object-position: center; }
+
+/* Dark gradient overlay for readability */
+.card-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.28) 0%,
+    rgba(0,0,0,0.18) 50%,
+    rgba(0,0,0,0.25) 100%
+  );
+  pointer-events: none;
+}
+
+/* All card content above background */
+.glass-card > *:not(.card-bg) {
+  position: relative; z-index: 2;
+}
+
+/* ── SECTION HEADING ── */
+.section-heading {
+  font-family: 'GlassShards', 'Montserrat', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.6rem;
+  filter: none;
+  text-shadow: none;
+}
+
+/* divider removed */
+
+/* ── BODY TEXT ── */
+.blur-text {
+  font-family: 'GlassShards', 'Montserrat', sans-serif;
+  font-size: clamp(1.35rem, 3.1vw, 2rem);
+  font-weight: 500;
+  line-height: 1.95;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.97);
+  margin-bottom: 1.4rem;
+  display: block;
+  max-width: 72ch;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.7);
+}
+
+.blur-text .letter {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  color: rgba(255, 255, 255, 0.93);
+}
+
+.letter-scribble {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; z-index: 10;
+}
+
+/* ── INLINE ICON STICKERS ── */
+.word-illo {
+  display: inline-block; vertical-align: middle;
+  width: 20px; height: 20px; margin: 0 3px 3px 2px;
+  opacity: 0.75;
+  transition: opacity 0.3s, transform 0.38s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s;
+  cursor: default;
+  filter: invert(1) opacity(0.82) drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+.word-illo:hover {
+  opacity: 1; transform: scale(1.6) rotate(-6deg) translateY(-2px);
+  filter: invert(1) opacity(1) drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+}
+
+/* ── OVERLAY / GALLERY ── */
+.overlay-backdrop {
+  position: fixed; inset: 0; background: rgba(8,6,18,0.9);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.45s ease;
+}
+.overlay-backdrop.open { opacity: 1; pointer-events: all; }
+
+.memory-overlay {
+  position: fixed; inset: 0; z-index: 1001;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 48px 24px 32px; pointer-events: none;
+  opacity: 0; transform: scale(0.96);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+.memory-overlay.open { opacity: 1; transform: scale(1); pointer-events: all; }
+
+.overlay-close {
+  position: absolute; top: 24px; right: 32px; background: none;
+  border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+  color: rgba(255,255,255,0.7); width: 40px; height: 40px;
+  font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.overlay-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+.overlay-title-row { margin-bottom: 32px; }
+.overlay-title {
+  font-family: 'GlassShards', 'Montserrat', sans-serif;
+  font-size: clamp(0.9rem, 2.5vw, 1.5rem); letter-spacing: 0.3em;
+  color: var(--col1); opacity: 0.85;
+}
+
+.polaroid-field {
+  position: relative; width: min(800px, 92vw); height: min(480px, 56vh); flex-shrink: 0;
+}
+.polaroid {
+  position: absolute; background: #f5f0e8; padding: 10px 10px 36px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s, z-index 0s;
+}
+.polaroid:hover {
+  transform: var(--base-rot, rotate(0deg)) scale(1.1) translateY(-8px) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7); z-index: 50 !important;
+}
+.polaroid img { display: block; width: 160px; height: 130px; object-fit: cover; filter: saturate(0.85) contrast(1.05); }
+.polaroid-label {
+  display: block; text-align: center;
+  font-size: 0.6rem; letter-spacing: 0.1em; color: #5a4a3a; margin-top: 8px; text-transform: uppercase;
+}
+.overlay-hint { margin-top: 20px; font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); }
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 2000;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.92); opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lightbox img { max-width: 90vw; max-height: 80vh; object-fit: contain; box-shadow: 0 8px 48px rgba(0,0,0,0.8); }
+.lightbox-caption { color: rgba(255,255,255,0.7); margin-top: 16px; font-size: 0.8rem; letter-spacing: 0.15em; }
+
+/* prevent mid-word line-breaks */
+.word-unit {
+  display: inline;
+  white-space: nowrap;
+}
+
+/* ── per-card alignment ── */
+.home-card .section-heading,
+.home-card .blur-text { text-align: left; }
+
+.memories-card .section-heading,
+.memories-card .blur-text { text-align: right; margin-left: auto; margin-right: 0; }
+
+.windows-card .section-heading,
+.windows-card .blur-text { text-align: left; }
+
+/* ── TITLE SECTION: grey glass window ── */
+.title-section {
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(155,170,185,0.07) 0%, transparent 52%),
+    radial-gradient(ellipse at 72% 62%, rgba(130,150,168,0.05) 0%, transparent 48%),
+    linear-gradient(175deg, #1e2228 0%, #191d23 45%, #14171d 100%);
+}
+
+/* condensation fog patches */
+.title-section::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 70%, rgba(180,195,210,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 35% at 80% 30%, rgba(160,180,200,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(140,160,178,0.04) 0%, transparent 80%);
+}
+
+/* tiny water drops inside title section */
+.title-drop {
+  position: absolute;
+  border-radius: 50% 50% 58% 58%;
+  background: radial-gradient(circle at 35% 28%,
+    rgba(210,228,240,0.72) 0%,
+    rgba(190,212,230,0.18) 55%,
+    transparent 75%);
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,0.4),
+    inset 0 -1px 2px rgba(0,0,0,0.15),
+    0 1px 5px rgba(0,0,0,0.18);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.18;
+  transition: opacity 1.2s ease, transform 0.4s ease;
+  animation: titleDropFloat ease-in-out infinite;
+}
+.title-section:hover .title-drop {
+  opacity: 0.65;
+}
+@keyframes titleDropFloat {
+  0%   { transform: translateY(0) scaleY(1); }
+  65%  { transform: translateY(0) scaleY(1); }
+  82%  { transform: translateY(0) scaleY(1.28); border-radius: 50% 50% 65% 65%; }
+  100% { transform: translateY(22px) scaleY(0.72); opacity: 0 !important; }
+}
+
+/* streak of water running down */
+.title-streak {
+  position: absolute;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, rgba(200,220,235,0.3) 30%, rgba(200,220,235,0.5) 60%, transparent);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  animation: titleStreak linear infinite;
+}
+.title-section:hover .title-streak {
+  opacity: 1;
+}
+@keyframes titleStreak {
+  0%   { transform: translateY(-10%); }
+  100% { transform: translateY(110vh); }
+}
+
