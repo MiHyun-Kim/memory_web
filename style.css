@@ -1,0 +1,218 @@
+* {
+  margin:0;
+  padding: 0;
+}
+
+@font-face {
+    font-family:"stitches";
+    src: url("font/bianzhidai_noBG-Stitches.otf") format("opentype");
+}
+
+  body {
+  margin: 0;
+  height: 0;
+  overflow-x: hidden;
+}
+
+
+.title {
+    width: 25%;
+    margin-left: 2%;
+    margin-top: .5%;
+    float: left;
+    position: fixed;
+    z-index: 3;
+}
+  
+
+.main {
+    width: 57%;
+    height: 100vh;
+    margin-right: 2%;
+    margin-left: 35%;
+    margin-top: 1%;
+    /*float: left;*/
+    position: fixed;
+    overflow-y:auto;
+    overflow-x: hidden;
+    z-index: 2;
+    pointer-events: none;
+}
+    /*height: 2377px;
+     border: solid rgb(111, 255, 0) 1px;*/
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.main * {
+  pointer-events: none;
+}
+
+.main h1 {
+  pointer-events: none;
+}
+
+
+
+.memory-web{
+  position: fixed;
+  z-index: 4;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /*border: solid rgb(255, 0, 230) 1px;*/
+  pointer-events: none;
+}
+
+
+.name {
+  pointer-events: auto;
+}
+
+
+.name{
+  font-family: "Noto Sans", sans-serif;
+  position: absolute;
+  text-decoration: underline;
+  color:black;
+  font-family: sans-serif;
+  letter-spacing:2px;
+  font-size: 16px;
+}
+
+.jessica{
+  top: 35%;
+  left: 10%;
+}
+
+.sabbir{
+  top: 40%;
+  left: 26%;
+}
+
+.karen{
+  top: 65%;
+  left: 12%;
+}
+
+.alejandro{
+  top: 62%;
+  left: 30%;
+}
+
+.stephanie{
+  top: 18%;
+  left: 38%;
+}
+
+.tabytha{
+  top: 23%;
+  left: 55%;
+}
+
+.maham{
+  top: 56%;
+  left: 65%;
+}
+
+.tariqul{
+  top: 28%;
+  left: 82%;
+}
+
+.sampriti{
+  top: 67%;
+  left: 78%;
+}
+
+h1{
+    font-family: "stitches";
+    font-size: 55px;
+    font-weight: normal;
+    pointer-events: auto;
+    
+}
+
+p{
+   font-family: "stitches"; 
+   font-size: 60px;
+   color: black;
+}
+   
+
+p:has(.name:hover){
+  opacity:1;
+}
+
+/*.glow-cursor {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(111, 255, 0, 0.6) 0%, rgba(111, 255, 0, 0) 70%);
+  box-shadow: 0 0 15px 8px rgba(111, 255, 0, 0.3);
+  z-index: 9999;
+  transition: transform 0.05s ease;
+}
+
+#infinite-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200vw;   
+  height: 400vh;  
+  z-index: 0;
+}*/
+
+.bg-img {
+  position: absolute;
+  object-fit: cover;
+ 
+  filter:grayscale(100%);
+  opacity: 0.7;
+  z-index: 15;
+
+  transition: filter 0.4s ease, opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+
+
+.bg-img:hover {
+  filter: grayscale(0%);   /* 🔥 back to color */
+  opacity: 1;
+  z-index: 20;
+}
+
+#bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+#gradient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform: scale(1.1);   /* 🔥 pushes blur past edges */
+  transform-origin: center;
+
+  z-index: -10;
+  pointer-events: none;
+
+  filter: blur(30px);
+  opacity: 0.9;
+}
+
+
