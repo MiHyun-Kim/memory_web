@@ -1,0 +1,398 @@
+@font-face {
+    font-family: 'GridTypeBauhaus';
+    src: url('fonts/GridType-Bauhaus.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'GridTypeBauhaus', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: rgb(1, 4, 36);
+    overflow-x: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.ticket-wrapper,
+.loading-container {
+  z-index: 9999;
+}
+
+
+/* tickets */
+.ticket-wrapper {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-family: 'GridTypeBauhaus', sans-serif;
+}
+
+.ticket {
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  position: relative;
+}
+
+.ticket-left {
+  width: 330px;
+  height: auto;
+  max-height: 220px;
+  transform: translateX(0);
+}
+
+.ticket-right {
+  width: 100px;
+  height: auto;
+  max-height: 220px;
+  transform: translateX(0);
+}
+
+
+/* Centered container */
+.loading-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+/* Bar wrapper with background */
+.loading-bar-wrapper {
+    width: 300px;
+    height: 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Actual bar that fills */
+.loading-bar {
+    height: 100%;
+    width: 0%;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+/* Text below the bar */
+.loading-text {
+    margin-top: 12px;
+    color: white;
+    font-family: 'GridTypeBauhaus', sans-serif;
+    font-size: 18px;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+/* ROLLER COASTER */
+.coaster-track {
+    width: 100%;
+    height: 1000%;
+    object-fit: contain;
+}
+
+.coaster-wrapper {
+    position: absolute;      /* scrolls with the page */
+    top: 0;                  /* sits at the top of the content */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 145px;           /* adjust to your image */
+    z-index: 200;            /* above rides, below ticket/loading */
+    pointer-events: none;
+}
+
+
+.coaster-line {
+    position: absolute;
+    bottom: -900px;          /* moves the text under the track */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;              /* space between each word */
+    font-family: 'GridTypeBauhaus', sans-serif;
+    font-size: 80px;
+    color: white;
+    pointer-events: none;
+}
+
+
+/* FERRIS WHEEL WRAPPER */
+.ferris-wrapper {
+  position: bottom;
+  bottom: 0;
+  left: 0;
+  width: 700px;
+  height: 700px;
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+}
+
+/* BACKGROUND stays big */
+.ferris-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ROTATING GROUP (wheel + seats) */
+.ferris-rotating {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  width: 450px;
+  height: 450px;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  animation: spin 20s linear infinite;
+}
+
+/* WHEEL stays smaller */
+.ferris-wheel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* SEATS */
+.seat-wrapper {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  transform-origin: center center;
+}
+
+.seat {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: auto;
+  cursor: pointer;
+  transform: rotate(-360deg); /* counter-rotation */
+}
+
+
+.red-seat {
+  background-image: url("images/seat-red.png");
+}
+
+.dark-seat {
+  background-image: url("images/seat-darkred.png");
+}
+
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Cotton candy */
+.cotton-wrapper {
+    position: fixed;
+    top: 20%;                     /* keep this, since you like the height */
+    left: 150%;
+    transform: translateX(-50%);  /* THIS is what centers it */
+    width: 600px;
+    height: 500px;
+    z-index: 50;
+    pointer-events: none;
+}
+
+
+.cotton-section {
+    position: fixed;
+    top: 25%;                 /* adjust height */
+    left: 90%;                   /* adjust horizontal position */
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;                /* space between candies */
+    z-index: 50;
+    pointer-events: none;
+}
+
+.cotton {
+    width: 150px;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.candy-center {
+    width: 260px;
+    pointer-events: none;
+}
+.candy-stick {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.candy {
+    position: absolute;
+    width: 150px;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.candy:hover {
+    transform: scale(1.1);
+}
+
+.zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background:opacity (0.0);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999; /* above everything */
+    pointer-events: auto;
+}
+
+.zoom-image {
+    width: 60%;
+    max-width: 700px;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    transform: scale(0.5);
+}
+
+
+.candy-1 { top: 215px;  left: 150px; }
+.candy-2 { top: 50px; left: 150px; }
+.candy-3 { top: 430px; left: 150px; }
+.candy-4 { top: 350px; left: 150px; }
+
+.candy-5 { top: 50px;  right: 160px; }
+.candy-6 { top: 200px; right: 160px; }
+.candy-7 { top: 360px; right: 160px; }
+.candy-8 { top: 435px; right: 160px; }
+
+
+/* MEGA DROP */
+.megadrop-wrapper {
+    position: fixed;
+    right: -1000px;        /* distance from right edge */
+    bottom: 0;          /* sits at bottom of screen */
+    width: 350px;       /* adjust to your stick image */
+    height: 900px;      /* adjust to your stick image */
+    pointer-events: none;
+    z-index: 20;
+}
+
+
+/* Stick */
+.megadrop {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@keyframes dropMove {
+    0%   { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, 450px); }/* fast drop */
+    100% { transform: translate(-50%, 0); }       /* slow rise */
+}
+
+.megadrop-seats {
+    position: absolute;
+    width: 200px;        /* adjust to your seat PNG */
+    bottom: 600px;        /* adjust to align with platform */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+
+    /* The up/down animation */
+    animation: dropMove 4s ease-in-out infinite;
+}
+
+
+/* Shake animation */
+.megadrop-seats:hover {
+    animation: shake 0.25s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(-50%) translateX(0); }
+    25% { transform: translateX(-50%) translateX(-4px); }
+    50% { transform: translateX(-50%) translateX(4px); }
+    75% { transform: translateX(-50%) translateX(-4px); }
+    100% { transform: translateX(-50%) translateX(0); }
+}
+
+/* BACKGROUND PARAGRAPH */
+
+#memory-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'GridTypeBauhaus', sans-serif;
+    font-size: 60px;
+    line-height: 1.1;
+    color: rgba(255,255,255,0.28); /* visible but soft */
+    text-transform: uppercase;
+    white-space: normal;
+    overflow: hidden;
+    z-index: 1; /* ABOVE stars, BELOW everything else */
+    pointer-events: none;
+    animation: driftUp 22s ease-in-out infinite alternate,
+               fadePulse 12s ease-in-out infinite;
+}
+
+@keyframes driftUp {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-120px); }
+}
+
+@keyframes fadePulse {
+    0%   { opacity: 0.12; }
+    50%  { opacity: 0.28; }
+    100% { opacity: 0.12; }
+}
+
+
+/* PEOPLE LAYER */
