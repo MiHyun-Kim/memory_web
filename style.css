@@ -216,3 +216,12 @@ p:has(.name:hover){
 }
 
 
+.dino {
+  width: 190px !important;   /* adjust as needed */
+  height: auto !important;
+
+  object-fit: contain;       /* prevents cropping */
+}
+
+
+
