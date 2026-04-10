@@ -89,7 +89,10 @@ function createImage(src) {
   img.src = src;
   img.classList.add("bg-img");
 
-  const width = Math.random() * 120 + 100;
+  if (src.includes("pinkdino")) {
+  img.classList.add("dino");
+  }  
+  const width = Math.random() * 90 + 100;
   const height = width * 0.75;
 
   let x, y;
