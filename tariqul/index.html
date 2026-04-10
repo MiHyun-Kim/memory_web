@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEMORIES IN PIXELS</title>
+
+     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script> 
+  <script
+    src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+    integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+    crossorigin="anonymous"></script>
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+
+
+
+  <link rel="stylesheet" href="https://use.typekit.net/muq4bfm.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <style>
+    .gsap-scroll-img-wrap {
+      overflow: hidden;
+    }
+
+    .gsap-scroll-img {
+      display: block;
+      filter: blur(16px);
+      transform: scale(1.2);
+      transform-origin: center center;
+      will-change: filter, transform;
+    }
+
+    .gsap-hero-load-img {
+      display: block;
+      filter: blur(16px);
+      transform: scale(1.2);
+      transform-origin: center center;
+      will-change: filter, transform;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="pointer">
+</div>
+
+
+<div class="logo to-whom ui-draggable ui-draggable-handle">
+ 
+</div>
+
+<div class="logo concern ui-draggable ui-draggable-handle">
+
+</div>
+
+
+  <div style="width: 80vw; margin: 0 auto;">
+
+
+    <!-- SCORE HUD -->
+
+    <div style="color: #8d0048; font-size: 2rem; padding-bottom: 2rem; padding-top: 2rem;">BRICK GAME</div>
+
+
+
+
+
+
+
+    <div class="flexcol">
+      <div style="width:48%">
+        <div class="hero-title">
+          <!-- <h1>MEMO<br>RIES<br>IN<br>PIXELS</h1> -->
+        <img class="gsap-outline-title" src="images/OutlineTitle.svg" style="padding: 50px; padding-top: 0px;" width="100%">
+
+          <div class="hero-label" style="padding-top: 3rem;">■ BRICK GAME ■ EST. 199X ■ PIXEL MEMORIES ■</div>
+
+          <div
+            style="font-family:'Press Start 2P',monospace;font-size:7px;color:var(--pink);letter-spacing:4px;margin-top:12px;">
+            ▓▓▓▓▓▓▓▓▓░░░░░░░░ 62%
+          </div>
+    <div class="glitch-line" style="margin-top:24px;"></div>
+
+        </div>
+      </div>
+
+      <div class="gsap-scroll-img-wrap" style="width:48%">
+        <img class="gsap-hero-load-img" src="images/img1-01.png" style="padding: 50px; padding-top: 0px;" width="100%">
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="flexcol">
+      <div style="width:30%;background-color: #008eff;" class="hero-body">
+
+        <p style="margin-left: -20px;margin-top: -50px;">
+          <span class="highlight-y">VINTAGE BRICK GAME</span> HANDHELD CONSOLE FROM MY
+          CHILDHOOD IS A <span class="highlight-g">SMALL DEVICE</span> HOLDS
+          <span class="highlight-p">PRECIOUS MEMORIES.</span> I USED TO PLAY
+          WITH THIS CONSOLE WHENEVER I GOT A CHANCE, SOMETIMES EVEN
+          WITHOUT FINISHING MY HOMEWORK OR CHORES.<br><br>
+          THE GAME HAD A SIMPLE <span class="highlight-y">BLACK AND WHITE
+            DISPLAY</span> AND BASIC SOUND EFFECTS. IT WAS VERY
+          EASY TO USE AND <span class="highlight-g">HIGHLY INTERACTIVE.</span>
+          THE CONTROLS WERE SIMPLE WITH JUST A FEW BUTTONS
+          TO MOVE THE BLOCKS AND CREATE LINES.
+        </p>
+      
+
+      </div>
+
+      <div class="gsap-scroll-img-wrap" style="
+    width: 70%;
+    position: relative;
+    z-index: 0;
+">
+               <img class="gsap-scroll-img" src="images/55.png" style="padding: px; padding-top: 0px;" width="100%">
+      </div>
+
+    </div>
+
+
+
+    <div class="flexcol" style="margin-top: -200px;    z-index: -1;
+    position: relative;">
+
+      <div class="gsap-scroll-img-wrap" style="width:40%">
+        <img class="gsap-scroll-img" src="images/img2-01.png" style="padding: 50px; padding-top: 0px;" width="100%">
+
+      </div>
+
+      <div style="width:30%">
+        <!-- <img src="images/img2-01.png" style="padding: 50px; padding-top: 0px;" width="100%"> -->
+
+      </div>
+
+
+
+      <div style="width:30%">
+
+        <br><br><br>
+        
+        <br><br><br>
+
+
+        <div class="share-text" style="padding-top: 100px;">
+          <h2>SISTER CO-OP MODE</h2>
+          <p style="margin-left: -200px;font-size: 2rem; line-height: 2rem;">
+            WHAT MADE THIS CONSOLE <span style="color:var(--yellow)">SPECIAL</span> WAS SHARING IT
+            WITH MY SISTER. WE WOULD TAKE TURNS PLAYING,
+            CHEERING EACH OTHER ON AND COMPETING FOR
+            HIGH SCORES. WE SPENT COUNTLESS HOURS
+            FOCUSING ON THE TINY SCREEN.<br><br>
+            TWO PLAYERS. ONE CONSOLE.
+            <span style="color:var(--pink)">INFINITE MEMORIES.</span>
+          </p>
+
+          <div class="glitch-line" style="margin-top:30px;width:80%;"></div>
+
+          <!-- pixel score badge -->
+          <div
+            style="margin-top:20px;font-family:'Press Start 2P',monospace;font-size:8px;color:var(--yellow);line-height:2.2;letter-spacing:2px;">
+            P1 &nbsp;&nbsp;&nbsp;▓▓▓▓▓▓▓▓▓▓ 98450<br>
+            P2 &nbsp;&nbsp;&nbsp;▓▓▓▓▓▓▓░░░ 76320
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="flexcol" style="margin-top: -200px;    z-index: -2;
+    position: relative;">
+      <div style="width:40%; padding-top: 300px;">
+
+        <div class="" style="padding-left: 200px;">
+          <div class="gameover-text-col">
+            <span class="go-label" style="text-align: right;">▶ LEVEL COMPLETE</span>
+            <h2>GAME OVER</h2>
+            <p style="text-align: right;border-right: 5px dashed #f43b7c;margin-right: -60px;">
+              THE SADDEST PART OF THE GAME WAS WHEN THE PLAYER
+              LOST ALL LIVES. THE CONSOLE WOULD MAKE A
+              <span style="color:var(--pink)">HEARTBREAKING SOUND</span> THAT SIGNALED GAME OVER.
+              EVEN THOUGH IT WAS JUST A SIMPLE
+              <span style="color:var(--yellow)">BEEPING NOISE,</span>
+              IT ALWAYS MADE US FEEL DISAPPOINTED.
+
+            </p>
+
+            <p style="text-align: right;">
+              <br><br>
+              THIS HUMBLE GAME TAUGHT ME
+              <span style="color:var(--yellow)">PATIENCE AND COORDINATION.</span>
+              WE BONDED OVER IT. THOUGH TECHNOLOGY ADVANCED GREATLY,
+              THIS VINTAGE CONSOLE REMAINS
+              <span style="color:var(--pink)">IRREPLACEABLE IN MY HEART.</span>
+              THE DESIGN AND SOUNDS MADE IT UNFORGETTABLE.<br><br>
+
+            </p>
+
+<br><br>
+            <p  style="text-align: right;margin-right: 30px;border-right: 5px dashed #f43b7c;">
+              BUT WE ALWAYS PRESSED RESET.
+            </p>
+
+
+
+
+
+            <div
+              style="margin-top:30px;font-family:'Press Start 2P',monospace;font-size:9px;color:var(--pink);letter-spacing:4px;animation:blink 1s step-end infinite;">
+              ▶ PRESS START TO CONTINUE
+            </div>
+
+
+
+            <div style="margin-top:50px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+              <div class="px-border">
+                <div
+                  style="font-family:'Press Start 2P',monospace;font-size:7px;color:var(--green);padding:10px 14px;letter-spacing:2px;line-height:2;">
+                  PLATFORM: BRICK GAME 9999IN1<br>
+                  YEAR: 199X<br>
+                  DISPLAY: LCD MONO<br>
+                  SOUND: BEEPER<br>
+                  BOND: ∞
+                </div>
+              </div>
+
+            </div>
+
+            <br><br><br>
+
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+            <div style="width:20%;">
+        <!-- <img src="images/img2-01.png" style="padding: 50px; padding-top: 0px;" width="100%"> -->
+         <p></p>
+
+      </div>
+
+      <div class="gsap-scroll-img-wrap" style="width:40%">
+        <img class="gsap-scroll-img" src="images/img3-01.png" style="padding: 50px; padding-top: 0px;" width="100%">
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <!-- 
+  slider animation
+  <div class="px-divider">
+    <div class="px-divider-inner" style="animation-direction:reverse;"></div>
+  </div>
+
+
+
+
+  <div class="px-divider">
+    <div class="px-divider-inner"></div>
+  </div> -->
+
+
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer id="footer">
+      <div class="marquee-row">
+        <span class="marquee-item filled">MEMORIES IN PIXELS</span>
+        <span class="marquee-item yellow">◆</span>
+        <span class="marquee-item">BRICK GAME</span>
+        <span class="marquee-item pink">◆</span>
+        <span class="marquee-item filled">GAME OVER</span>
+        <span class="marquee-item yellow">◆</span>
+        <span class="marquee-item">INSERT COIN</span>
+        <span class="marquee-item pink">◆</span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee-item filled">MEMORIES IN PIXELS</span>
+        <span class="marquee-item yellow">◆</span>
+        <span class="marquee-item">BRICK GAME</span>
+        <span class="marquee-item pink">◆</span>
+        <span class="marquee-item filled">GAME OVER</span>
+        <span class="marquee-item yellow">◆</span>
+        <span class="marquee-item">INSERT COIN</span>
+        <span class="marquee-item pink">◆</span>
+      </div>
+
+      <div class="marquee-row reverse" style="margin-top:0;">
+        <span class="marquee-item"
+          style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">199X</span>
+        <span class="marquee-item pink">■</span>
+        <span class="marquee-item" style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">88450
+          PTS</span>
+        <span class="marquee-item pink">■</span>
+        <span class="marquee-item" style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">LEVEL
+          01</span>
+        <span class="marquee-item pink">■</span>
+        <span class="marquee-item"
+          style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">♥♥♡</span>
+        <span class="marquee-item pink">■</span>
+        <!-- dup -->
+        <span class="marquee-item"
+          style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">199X</span>
+        <span class="marquee-item pink">■</span>
+        <span class="marquee-item" style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">88450
+          PTS</span>
+        <span class="marquee-item pink">■</span>
+        <span class="marquee-item" style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">LEVEL
+          01</span>
+        <span class="marquee-item pink">■</span>
+        <span class="marquee-item"
+          style="color:var(--cyan);-webkit-text-stroke:0;font-size:14px;padding:0 16px;">♥♥♡</span>
+        <span class="marquee-item pink">■</span>
+      </div>
+
+    </footer>
+
+
+<br><br><br>
+
+
+
+
+  </div>
+
+    
+    <div style="" class="bdhoveroutline">
+
+    </div>
+
+ 
+
+
+
+
+
+  
+    <div style="width: 100%;
+  height: 100px; margin-top: -50px;
+  background-image: url(images/bottompattern.svg);
+  background-repeat: repeat;">
+
+    </div>
+
+
+
+
+
+  <script>
+    (function () {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      var outlineTitle = document.querySelector('.gsap-outline-title');
+      if (outlineTitle) {
+        gsap.from(outlineTitle, {
+          opacity: 0,
+          y: 36,
+          scale: 0.94,
+          filter: 'blur(12px)',
+          duration: 1,
+          ease: 'power2.out',
+          delay: 0
+        });
+      }
+
+      var heroLoadImg = document.querySelector('.gsap-hero-load-img');
+      if (heroLoadImg) {
+        gsap.fromTo(
+          heroLoadImg,
+          {
+            filter: 'blur(16px)',
+            scale: 1.2,
+            transformOrigin: 'center center'
+          },
+          {
+            filter: 'blur(0px)',
+            scale: 1,
+            duration: 1.35,
+            ease: 'power2.out',
+            delay: 0.2
+          }
+        );
+      }
+
+      gsap.utils.toArray('.gsap-scroll-img').forEach(function (img) {
+        gsap.fromTo(
+          img,
+          {
+            filter: 'blur(16px)',
+            scale: 1.2,
+            transformOrigin: 'center center'
+          },
+          {
+            filter: 'blur(0px)',
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: img,
+              start: 'top 85%',
+              end: 'top 35%',
+              scrub: true
+            }
+          }
+        );
+      });
+
+      window.addEventListener('load', function () {
+        ScrollTrigger.refresh();
+      });
+    })();
+
+    // Animate score counter
+    let score = 0;
+    const scoreEl = document.getElementById('score');
+    // const inc = setInterval(() => {
+    //   score += Math.floor(Math.random() * 150 + 10);
+    //   if (score >= 88450) {
+    //     score = 88450;
+    //     clearInterval(inc);
+    //   }
+    //   scoreEl.textContent = String(score).padStart(6, '0');
+    // }, 80);
+
+    // Random glitch flashes on title
+    // const title = document.querySelector('.hero-title h1');
+    // setInterval(() => {
+    //   if (Math.random() < 0.15) {
+    //     title.style.transform = `translate(${(Math.random()-0.5)*8}px, ${(Math.random()-0.5)*4}px)`;
+    //     setTimeout(() => {
+    //       title.style.transform = '';
+    //     }, 80);
+    //   }
+    // }, 600);
+
+
+
+    var statement = [
+];
+
+var num = 30;
+
+$(function() {
+
+
+
+	var logo = 0;
+	var div="";
+	$('body').click(function(event) {
+		if (logo ===0){
+			div = '<div class="logo" id="add"><img src="images/logo_tw.png"></div>';
+			logo = 1;
+		}else{
+			div = '<div class="logo" id="add"><img src="images/logo_mc.png"></div>';
+			logo = 0;
+		}
+
+		var relativePosition = {
+		      left: event.pageX - $(document).scrollLeft() - $('body').offset().left-100,
+		      top : event.pageY - $(document).scrollTop() - $('body').offset().top,
+		    };
+		random();
+		
+		$(this).append(div);
+		$('#add').css({
+	      top:relativePosition.top-100, 
+	      left:relativePosition.left,
+	  	  // transform: "rotate("+num+"deg)"
+	  	}).removeAttr('id');
+	  	
+	  	$('.logo').draggable();
+
+		});
+
+    // set interval
+    var tid = setInterval(message, 3000);
+    var count = 0;
+
+    function message() {
+      $("#statement").text(statement[count]);
+      count++;
+    }
+
+    function random(){
+    	num = Math.floor(Math.random()*50) + 1;
+    	num *= Math.floor(Math.random()*2) == 1 ? 1 : -1; 
+    }
+
+
+
+    $('.logo').draggable();
+
+
+
+    setInterval(function() {
+  var $logos = $(".logo.ui-draggable.ui-draggable-handle");
+
+  if ($logos.length > 2) {
+    $logos.last().fadeOut(500, function() {
+      $(this).remove();
+    });
+  }
+}, 5000);
+
+});
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
