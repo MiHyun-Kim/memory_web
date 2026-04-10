@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinosaur</title>
+  <link rel="stylesheet" href="https://use.typekit.net/has5lno.css">
+  <link href="dinosaur.css" rel="stylesheet">
+ 
+</head>
+<body>
+
+<!-- ── CURSOR TRAIL OVERLAY ── -->
+<div class="letter-scatter-overlay" id="flyOverlay"></div>
+
+<!-- ══ HERO ══ -->
+  <div class="dino-heading">
+  <span>D</span><span>I</span><span>N</span><span>O</span>
+  <br>
+  <span>S</span><span>A</span><span>U</span><span>R</span>
+</div>
+
+  <!-- Pixel SVG shapes -->
+  <svg class="pixels-layer" viewBox="0 0 600 4000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#CC29B9" opacity="0.50">
+      <rect x="10" y="8" width="8" height="8"/><rect x="18" y="8" width="8" height="8"/><rect x="26" y="8" width="8" height="8"/>
+      <rect x="10" y="16" width="8" height="8"/><rect x="18" y="16" width="8" height="8"/>
+      <rect x="2"  y="24" width="8" height="8"/><rect x="10" y="24" width="8" height="8"/>
+      <rect x="2"  y="32" width="8" height="8"/>
+      <rect x="200" y="4" width="8" height="8"/><rect x="208" y="4" width="8" height="8"/>
+      <rect x="196" y="12" width="8" height="8"/><rect x="204" y="12" width="8" height="8"/><rect x="212" y="12" width="8" height="8"/>
+      <rect x="200" y="20" width="8" height="8"/>
+      <rect x="196" y="28" width="8" height="8"/>
+      <rect x="450" y="50" width="8" height="8"/><rect x="458" y="50" width="8" height="8"/>
+      <rect x="446" y="58" width="8" height="8"/><rect x="454" y="58" width="8" height="8"/>
+      <rect x="450" y="66" width="8" height="8"/>
+      <rect x="442" y="74" width="8" height="8"/>
+      <rect x="30" y="300" width="8" height="8"/><rect x="38" y="300" width="8" height="8"/>
+      <rect x="26" y="308" width="8" height="8"/><rect x="34" y="308" width="8" height="8"/>
+      <rect x="30" y="316" width="8" height="8"/>
+    </g>
+    <g fill="#1E90FF" opacity="0.50">
+      <rect x="380" y="5"  width="8" height="8"/><rect x="388" y="5"  width="8" height="8"/>
+      <rect x="376" y="13" width="8" height="8"/><rect x="384" y="13" width="8" height="8"/><rect x="392" y="13" width="8" height="8"/>
+      <rect x="380" y="21" width="8" height="8"/>
+      <rect x="376" y="29" width="8" height="8"/>
+      <rect x="60"  y="180" width="8" height="8"/><rect x="68"  y="180" width="8" height="8"/>
+      <rect x="56"  y="188" width="8" height="8"/><rect x="64"  y="188" width="8" height="8"/>
+      <rect x="60"  y="196" width="8" height="8"/>
+      <rect x="56"  y="204" width="8" height="8"/>
+    </g>
+    <g fill="#22c55e" opacity="0.50">
+      <rect x="300" y="2"  width="8" height="8"/><rect x="308" y="2"  width="8" height="8"/>
+      <rect x="296" y="10" width="8" height="8"/><rect x="304" y="10" width="8" height="8"/><rect x="312" y="10" width="8" height="8"/>
+      <rect x="300" y="18" width="8" height="8"/>
+      <rect x="296" y="26" width="8" height="8"/>
+      <rect x="490" y="140" width="8" height="8"/><rect x="498" y="140" width="8" height="8"/>
+      <rect x="486" y="148" width="8" height="8"/><rect x="494" y="148" width="8" height="8"/>
+      <rect x="490" y="156" width="8" height="8"/>
+      <rect x="486" y="164" width="8" height="8"/>
+    </g>
+  </svg>
+
+  <img src="baby pic.png" class="photo-left">
+<img src="park crop.png" class="photo-right">
+</div>
+
+<!-- ── CAPTION ── -->
+<div class="caption">
+  THIS <span class="dino-word">DINOSAUR</span> WAS AT ONE OF MY FAVORITE PARKS AS A CHILD, THE PARK  I DEEMED THE <span class="dino-word">DINOSAUR</span> PARK.
+</div>
+
+<!-- ── BODY CONTENT ── -->
+<div class="content">
+  <p class="dino-para">
+    WHEN I WAS YOUNGER, MY DAD WOULD REGULARLY TAKE ME TO THE PARK. HE TOOK ME TO SO MANY PARKS, SO OFTEN, THAT I GAVE EACH ONE A NAME. MANY OF THESE PARKS WERE NAMED AFTER COLORS, EXCEPT FOR MY FAVORITE ONE: THE <span class="highlight" data-word="DINOSAUR">DINOSAUR</span> PARK.
+  </p>
+
+  <p class="dino-para">
+    GROWING UP, I SPENT A LOT OF TIME WITH MY DAD, AND I CHERISHED THE TIME WE SPENT TOGETHER, ESPECIALLY WHEN WE WERE AT THE PARK. SPENDING TIME WITH MY DAD WAS A HIGHLIGHT OF MY CHILDHOOD. TO ME, THIS <span class="highlight" data-word="DINOSAUR">DINOSAUR</span> NOT ONLY REPRESENTS MY FAVORITE PLACE BUT ALSO MY RELATIONSHIP WITH MY DAD.
+</p>
+
+  <p class="dino-para">
+    FROM A YOUNG AGE TO NOW, I HAVE ALWAYS VALUED TIME AND MEMORIES WITH MY DAD. THE <span class="highlight" data-word="DINOSAUR">DINOSAUR</span> PARK HOLDS MANY CHILDHOOD MEMORIES, ESPECIALLY ONES WITH MY DAD, WHICH IS WHY IT IS SENTIMENTAL TO ME.
+  </p>
+
+<!-- ── INTERACTIVE SCATTER SECTION ── -->
+
+<div class="scatter-section" id="scatterSection">
+  <!-- words placed by JS -->
+</div>
+
+
+<script>
+(function() {
+  /* ── CURSOR TRAIL ── */
+  const colors = ['#CC29B9','#1E90FF','#22c55e'];
+  document.addEventListener('mousemove', function(e) {
+    if (Math.random() > 0.35) return;
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    dot.style.left = e.clientX - 3 + 'px';
+    dot.style.top  = e.clientY - 3 + 'px';
+    dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+    document.body.appendChild(dot);
+    setTimeout(() => dot.remove(), 700);
+  });
+
+  /* ── SCATTER SECTION ── */
+ const words = [
+  'DINOSAUR', 'DINOSAUR', 'DINOSAUR', 'DINOSAUR', 'DINOSAUR',
+  'DINOSAUR', 'DINOSAUR', 'DINOSAUR', 'DINOSAUR', 'DINOSAUR',
+  'DINOSAUR', 'DINOSAUR', 'DINOSAUR', 'DINOSAUR'
+];
+
+  const fontSizes = [23,30, 36, 18, 22, 26];
+  const section = document.getElementById('scatterSection');
+  const hint    = document.getElementById('scatterHint');
+  let scattered = false;
+  let wordEls   = [];
+
+  /* originals: place them in a loose grid */
+  const origPositions = [];
+
+  function buildWords() {
+    section.innerHTML = '';
+    wordEls = [];
+    const W = section.offsetWidth || 700;
+    const H = section.offsetHeight || 280;
+
+    words.forEach(function(w, i) {
+      const el = document.createElement('span');
+      el.className = 'scatter-word';
+      const fs = fontSizes[i % fontSizes.length];
+      const col = i % 2 === 0 ? '#CC29B9' : (i % 3 === 0 ? '#1E90FF' : '#22c55e');
+      el.style.fontSize   = fs + 'px';
+      el.style.fontWeight = fs > 18 ? '700' : '300';
+      el.style.color      = col;
+      el.style.opacity    = '0.85';
+      el.textContent = w;
+
+      /* natural grid position */
+      const cols = 4;
+      const row  = Math.floor(i / cols);
+      const col2 = i % cols;
+      const ox   = (col2 / cols) * (W * 0.85) + 20 + (row % 2 ? 18 : 0);
+      const oy   = (row / 4)    * (H * 0.72)  + 20;
+
+      el.style.left = ox + 'px';
+      el.style.top  = oy + 'px';
+      el.style.transition = 'left 0.7s cubic-bezier(0.34,1.56,0.64,1), top 0.7s cubic-bezier(0.34,1.56,0.64,1), opacity 0.5s';
+
+      origPositions[i] = { x: ox, y: oy };
+      section.appendChild(el);
+      wordEls.push(el);
+    });
+  }
+
+  buildWords();
+  window.addEventListener('resize', buildWords);
+
+  function scatterWords(cx, cy) {
+    const W = section.offsetWidth  || 700;
+    const H = section.offsetHeight || 280;
+    const rect = section.getBoundingClientRect();
+    const mx = cx - rect.left;
+    const my = cy - rect.top;
+
+    wordEls.forEach(function(el, i) {
+      const ox = origPositions[i].x;
+      const oy = origPositions[i].y;
+      const dx = ox - mx;
+      const dy = oy - my;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      const strength = Math.max(160, 340 - dist * 0.5);
+      const angle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 1.2;
+      const nx = Math.min(Math.max(ox + Math.cos(angle) * strength, 0), W - 80);
+      const ny = Math.min(Math.max(oy + Math.sin(angle) * strength * 0.7, -20), H + 20);
+
+      el.style.transition = 'left 0.55s cubic-bezier(0.25,0.46,0.45,0.94), top 0.55s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.4s';
+      el.style.left = nx + 'px';
+      el.style.top  = ny + 'px';
+      el.style.opacity = '0.6';
+    });
+
+    scattered = true;
+    hint.style.opacity = '0.3';
+    hint.textContent = '↑ CLICK REASSEMBLE TO RESTORE ↑';
+  }
+
+  function reassembleWords() {
+    wordEls.forEach(function(el, i) {
+      el.style.transition = 'left 0.7s cubic-bezier(0.34,1.56,0.64,1), top 0.7s cubic-bezier(0.34,1.56,0.64,1), opacity 0.5s';
+      el.style.left = origPositions[i].x + 'px';
+      el.style.top  = origPositions[i].y + 'px';
+      el.style.opacity = '0.85';
+    });
+    scattered = false;
+    hint.style.opacity = '1';
+    hint.textContent = '↓ CLICK ANYWHERE BELOW TO SCATTER THE TEXT ↓';
+  }
+
+  section.addEventListener('click', function(e) {
+    scatterWords(e.clientX, e.clientY);
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', reassembleWords);
+
+  /* ── CLICK HIGHLIGHT → LETTER SCATTER ── */
+  const overlay = document.getElementById('flyOverlay');
+
+  document.querySelectorAll('.highlight').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const word   = el.dataset.word || el.textContent;
+      const rect   = el.getBoundingClientRect();
+      const cx     = rect.left + rect.width  / 2;
+      const cy     = rect.top  + rect.height / 2;
+
+      word.split('').forEach(function(ch, i) {
+        setTimeout(function() {
+          const letter = document.createElement('span');
+          letter.className = 'flying-letter';
+          const angle = (Math.random() * 2 * Math.PI);
+          const dist  = 80 + Math.random() * 140;
+          const tx    = Math.cos(angle) * dist;
+          const ty    = Math.sin(angle) * dist - 40;
+          const tr    = (Math.random() - 0.5) * 360;
+          letter.style.setProperty('--tx', tx + 'px');
+          letter.style.setProperty('--ty', ty + 'px');
+          letter.style.setProperty('--tr', tr + 'deg');
+          letter.style.left = cx + (i - word.length / 2) * 18 + 'px';
+          letter.style.top  = cy + 'px';
+          letter.textContent = ch;
+          overlay.appendChild(letter);
+          setTimeout(() => letter.remove(), 1300);
+        }, i * 50);
+      });
+
+      /* brief tada on the element itself */
+      el.style.animation = 'none';
+      requestAnimationFrame(() => {
+        el.style.animation = 'tada 0.6s ease';
+        setTimeout(() => el.style.animation = '', 600);
+      });
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
