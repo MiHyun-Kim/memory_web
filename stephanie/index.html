@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenfield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'GridType';
+      src: url('data:font/otf;base64,T1RUTwAJAIAAAwAQQ0ZGIHF3u48AAAU4AAAgqU9TLzJpzWSgAAABAAAAAGBjbWFwAYMCHQAABJwAAAB8aGVhZCz8CxIAAACcAAAANmhoZWEDIgGcAAAA1AAAACRobXR4GWQAAAAAJeQAAAAsbWF4cAALUAAAAAD4AAAABm5hbWVGMBZpAAABYAAAAzlwb3N0AAMAAAAABRgAAAAgAAEAAAABAAANymXLXw889QADA+gAAAAA5cZjiQAAAADlxmOJAAD/9AJYAywAAAADAAIAAAAAAAAAAQAAAyD/OAAAAlgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAsAAFAAAAsAAAADAlgB9AAFAAACigK7AAAAjAKKArsAAAHfADEBAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABYWFhYAEAAIABSAyD/OAAAAywADAAAAAEAAAAAAZADLAAgACAAAAAAACIBngABAAAAAAAAAAEABAABAAAAAAABAAkAAAABAAAAAAACABYAGwABAAAAAAADACIBNQABAAAAAAAEACAAXQABAAAAAAAFAAsBFAABAAAAAAAGAB0AvQABAAAAAAAHAAEABAABAAAAAAAIAAEABAABAAAAAAAJAAEABAABAAAAAAAKAAEABAABAAAAAAALAAEABAABAAAAAAAMAAEABAABAAAAAAANAAEABAABAAAAAAAOAAEABAABAAAAAAAQAAkAAAABAAAAAAARABYAGwADAAEECQAAAAIAEQADAAEECQABABIACQADAAEECQACACwAMQADAAEECQADAEQBVwADAAEECQAEAEAAfQADAAEECQAFABYBHwADAAEECQAGADoA2gADAAEECQAHAAIAEQADAAEECQAIAAIAEQADAAEECQAJAAIAEQADAAEECQAKAAIAEQADAAEECQALAAIAEQADAAEECQAMAAIAEQADAAEECQANAAIAEQADAAEECQAOAAIAEQADAAEECQAQABIACQADAAEECQARACwAMUdyaWQgVHlwZQBHAHIAaQBkACAAVAB5AHAAZVJlY3RhbmdsZSBWLjI2MDIyNjEzNTgAUgBlAGMAdABhAG4AZwBsAGUAIABWAC4AMgA2ADAAMgAyADYAMQAzADUAOEdyaWQgVHlwZSBSZWN0YW5nbGUgVi4yNjAyMjYxMzU4AEcAcgBpAGQAIABUAHkAcABlACAAUgBlAGMAdABhAG4AZwBsAGUAIABWAC4AMgA2ADAAMgAyADYAMQAzADUAOEdyaWRUeXBlUmVjdGFuZ2xlVi4yNjAyMjYxMzU4AEcAcgBpAGQAVAB5AHAAZQBSAGUAYwB0AGEAbgBnAGwAZQBWAC4AMgA2ADAAMgAyADYAMQAzADUAOFZlcnNpb24gMC4xAFYAZQByAHMAaQBvAG4AIAAwAC4AMSA6R3JpZCBUeXBlIFJlY3RhbmdsZSBWLjI2MDIyNjEzNTgAIAA6AEcAcgBpAGQAIABUAHkAcABlACAAUgBlAGMAdABhAG4AZwBsAGUAIABWAC4AMgA2ADAAMgAyADYAMQAzADUAOAAAAAAAAAEAAwABAAAADAAEAHAAAAAYABAAAwAIAAAAIABBAEQARQBGAEcASQBMAE4AUv//AAAAAAAgAEEARABFAEYARwBJAEwATgBS//8AAP/h/8H/v/+//7//v/++/7z/u/+4AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABAEAAQEBHkdyaWRUeXBlUmVjdGFuZ2xlVi4yNjAyMjYxMzU4AAEBASf4GwD4HAL4HQP4HgSLf/m0+OwFHQAAAL0PHQAAANIRix0AACCpEgAOAQEMLDVLUFFSU1RVVldYWVZlcnNpb24gMC4xR3JpZCBUeXBlIFJlY3RhbmdsZSBWLjI2MDIyNjEzNThHcmlkIFR5cGVSZWN0YW5nbGUgVi4yNjAyMjYxMzU4c3BhY2VBREVGR0lMTlIAAAABiwGMAY0BjgGPAZABkQGSAZMBlAALAgABABQAFwAaBEcIGwwoEBsUKxf+HCcfvfiIi/fyFYv78gX38osFi/fyBQ747A747A747L35ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PkKFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL/WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ZBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/ywFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PkKFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwgO+Oy9+QoVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOAxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ZBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+QoVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCA747L35ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PkKFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjgixV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIDvjsvfkKFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL/WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ZBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+6IVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+/wVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIDvjsvflkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PkKFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ZBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4IsVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+6IVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/uiFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwgO+Oy9+QoVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/1kFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD4sBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/uiFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+QoVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7ohV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIDvjsvfkKFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjgixV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL/WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIDvjsvfkKFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+6IVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/1kFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7ohV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwjg+WQVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIi/tIFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcI4PlkFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL/FYVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiL+0gVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCOD5ChV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIsxFX+Xi8OXlwiWl8CLln8Il3+LU39/CIB/VouAlwiLMRV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIizEVf5eLw5eXCJaXwIuWfwiXf4tTf38IgH9Wi4CXCIv7SBV/l4vDl5cIlpfAi5Z/CJd/i1N/fwiAf1aLgJcIDgAAAAH0AAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAAAlgAAAJYAAACWAAA') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{overflow-x:hidden;}
+    body{height:300vh;background:#f4f1ea;font-family:'IBM Plex Mono',monospace;}
+
+    /* ── Layer order (back → front) ──────────────────
+       z-index  10  images
+       z-index  20  lorem ipsum
+       z-index  30  blob
+       z-index  40  svg letters
+    ─────────────────────────────────────────────── */
+
+    .fixed-scene{
+      position:fixed;top:0;left:0;
+      width:100vw;height:100vh;
+      overflow:hidden;z-index:1;
+    }
+
+    /* Images — back */
+    .photo{position:absolute;overflow:hidden;background:#d4cfca;z-index:10;cursor:grab;user-select:none;}
+    .photo:active{cursor:grabbing;}
+
+    /* Letters — front */
+    .letter-row{
+      position:absolute;z-index:40;pointer-events:none;
+      font-family:'GridType',sans-serif;
+      font-size:clamp(80px, 18vw, 320px);line-height:1;
+      color:#bec4b8;letter-spacing:-0.01em;opacity: .85;
+      white-space:nowrap;
+    }
+    .row-1{left:0; top:12%;}
+    .row-2{right:0; top:58%;text-align:right;}
+
+    /* Text block */
+    .text-block .gt{font-family:'GridType',sans-serif;}
+    .text-block{
+      position:fixed;top:24px;left:50%;width:min(640px, 46vw);
+      font-family:'Atkinson Hyperlegible Mono',monospace;
+      font-style:normal;font-weight:600;
+      font-size:clamp(10px, 0.85vw, 13px);line-height:1.45;
+      text-transform:uppercase;
+      color:#292929;z-index:50;pointer-events:none;
+    }
+
+    /* Blob — scaled up, between text and letters */
+    .svg-overlay{
+      position:fixed;bottom:-2px;left:50%;
+      width:175%;
+      transform:translateX(-50%) translateY(100%);
+      will-change:transform;pointer-events:none;
+      z-index:-5;
+      opacity:0.85;
+      mix-blend-mode:multiply;
+    }
+    .svg-overlay svg{width:100%;height:auto;display:block;}
+
+    .scroll-hint{
+      position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;
+      color:#777;z-index:50;transition:opacity 0.4s ease;
+    }
+    .scroll-hint::after{
+      content:'';display:block;width:1px;height:28px;
+      background:#999;margin:6px auto 0;
+      animation:tickDown 1.4s ease-in-out infinite;
+      transform-origin:top center;
+    }
+    @keyframes tickDown{
+      0%  {transform:scaleY(0);opacity:0;}
+      45% {transform:scaleY(1);opacity:1;}
+      100%{transform:scaleY(1);opacity:0;}
+    }
+
+    /* ── Lightbox ── */
+    .lightbox{
+      position:fixed;inset:0;
+      background:rgba(244,241,234,0.96);
+      z-index:200;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+    }
+    .lightbox.open{display:flex;}
+    .lb-inner{
+      display:flex;
+      gap:48px;
+      align-items:flex-start;
+      max-width:90vw;
+      max-height:88vh;
+    }
+    .lb-img{
+      max-height:82vh;
+      max-width:58vw;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      display:block;
+    }
+    .lb-text{
+      width:280px;
+      flex-shrink:0;
+      padding-top:8px;
+    }
+    .lb-date{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:8.5px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#888;
+      margin-bottom:18px;
+    }
+    .lb-entry{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:11px;
+      font-weight:400;
+      line-height:1.85;
+      color:#1c1c1c;
+      white-space:pre-wrap;
+    }
+    .lb-entry.loading{color:#aaa;font-style:italic;}
+    .lb-close{
+      position:fixed;top:28px;right:36px;
+      font-family:'IBM Plex Mono',monospace;
+      font-size:11px;letter-spacing:0.15em;
+      text-transform:uppercase;
+      background:none;border:none;
+      color:#555;cursor:pointer;
+      z-index:201;
+      padding:4px 0;
+      border-bottom:1px solid #999;
+    }
+    .lb-close:hover{color:#111;border-color:#111;}
+    .photo img {
+      position:absolute;top:0;left:0;
+      width:100%;height:100%;
+      object-fit:cover;display:block;
+      mix-blend-mode:hard-light;
+      filter:grayscale(calc(.25 - var(--color-reveal, 0)));
+      transition:filter 0.05s linear;
+    }
+  </style>
+</head>
+<body>
+
+<div class="fixed-scene" id="scene">
+  <div class="letter-row row-1">GREEN</div>
+  <div class="letter-row row-2">FIELD</div>
+</div>
+
+<div class="text-block">
+  Th<span class="gt">e</span> <span class="gt">g</span><span class="gt">r</span><span class="gt">e</span><span class="gt">e</span><span class="gt">n</span><span class="gt">f</span><span class="gt">i</span><span class="gt">e</span><span class="gt">l</span><span class="gt">d</span> b<span class="gt">e</span>h<span class="gt">i</span><span class="gt">n</span><span class="gt">d</span> my <span class="gt">n</span><span class="gt">e</span><span class="gt">i</span><span class="gt">g</span>hbo<span class="gt">r</span>s hous<span class="gt">e</span> was wh<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span> <span class="gt">i</span> sp<span class="gt">e</span><span class="gt">n</span>t a<span class="gt">l</span><span class="gt">l</span> my t<span class="gt">i</span>m<span class="gt">e</span>. <span class="gt">E</span>xpa<span class="gt">n</span>s<span class="gt">i</span>v<span class="gt">e</span> a<span class="gt">n</span><span class="gt">d</span> <span class="gt">e</span>v<span class="gt">e</span><span class="gt">r</span><span class="gt">g</span><span class="gt">r</span><span class="gt">e</span><span class="gt">e</span><span class="gt">n</span>, <span class="gt">f</span><span class="gt">i</span><span class="gt">l</span><span class="gt">l</span><span class="gt">e</span><span class="gt">d</span> w<span class="gt">i</span>th ta<span class="gt">l</span><span class="gt">l</span> <span class="gt">g</span><span class="gt">r</span>ass<span class="gt">e</span>s, a <span class="gt">f</span><span class="gt">e</span>w cops<span class="gt">e</span>s o<span class="gt">f</span> t<span class="gt">r</span><span class="gt">e</span><span class="gt">e</span>s, a<span class="gt">n</span><span class="gt">d</span> a c<span class="gt">r</span><span class="gt">e</span><span class="gt">e</span>k w<span class="gt">i</span>th catta<span class="gt">i</span><span class="gt">l</span>s that <span class="gt">g</span><span class="gt">r</span><span class="gt">e</span>w a<span class="gt">l</span>o<span class="gt">n</span><span class="gt">g</span> <span class="gt">i</span>ts b<span class="gt">e</span><span class="gt">d</span>. T<span class="gt">i</span>m<span class="gt">e</span> th<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span> was p<span class="gt">r</span><span class="gt">e</span>c<span class="gt">i</span>ous a<span class="gt">n</span><span class="gt">d</span> <span class="gt">f</span><span class="gt">l</span><span class="gt">e</span><span class="gt">e</span>t<span class="gt">i</span><span class="gt">n</span><span class="gt">g</span>, thou<span class="gt">g</span>h th<span class="gt">e</span><span class="gt">n</span> <span class="gt">i</span>t <span class="gt">d</span><span class="gt">i</span><span class="gt">d</span><span class="gt">n</span>'t <span class="gt">f</span><span class="gt">e</span><span class="gt">e</span><span class="gt">l</span> that way. Th<span class="gt">e</span> h<span class="gt">e</span><span class="gt">i</span><span class="gt">g</span>ht o<span class="gt">f</span> my m<span class="gt">e</span>mo<span class="gt">r</span><span class="gt">i</span><span class="gt">e</span>s w<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span> <span class="gt">d</span>u<span class="gt">r</span><span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> 2008. W<span class="gt">e</span> wou<span class="gt">l</span><span class="gt">d</span> stamp <span class="gt">d</span>ow<span class="gt">n</span> th<span class="gt">e</span> catta<span class="gt">i</span><span class="gt">l</span>s, mak<span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> a h<span class="gt">i</span><span class="gt">d</span><span class="gt">d</span><span class="gt">e</span><span class="gt">n</span> <span class="gt">f</span>o<span class="gt">r</span><span class="gt">e</span>st b<span class="gt">e</span>tw<span class="gt">e</span><span class="gt">e</span><span class="gt">n</span> th<span class="gt">e</span><span class="gt">i</span><span class="gt">r</span> tow<span class="gt">e</span><span class="gt">r</span><span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> st<span class="gt">e</span>ms. A s<span class="gt">e</span>c<span class="gt">r</span><span class="gt">e</span>t wo<span class="gt">r</span><span class="gt">l</span><span class="gt">d</span> hov<span class="gt">e</span><span class="gt">r</span><span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> abov<span class="gt">e</span> th<span class="gt">e</span> c<span class="gt">r</span><span class="gt">e</span><span class="gt">e</span>k w<span class="gt">e</span> thou<span class="gt">g</span>ht wou<span class="gt">l</span><span class="gt">d</span> <span class="gt">n</span><span class="gt">e</span>v<span class="gt">e</span><span class="gt">r</span> stop <span class="gt">f</span><span class="gt">l</span>ow<span class="gt">i</span><span class="gt">n</span><span class="gt">g</span>. But th<span class="gt">e</span><span class="gt">n</span> <span class="gt">d</span><span class="gt">r</span>ou<span class="gt">g</span>ht cam<span class="gt">e</span>, t<span class="gt">i</span>m<span class="gt">e</span> p<span class="gt">r</span>o<span class="gt">g</span><span class="gt">r</span><span class="gt">e</span>ss<span class="gt">e</span><span class="gt">d</span>, a<span class="gt">n</span><span class="gt">d</span> w<span class="gt">e</span> mov<span class="gt">e</span><span class="gt">d</span> o<span class="gt">n</span>. Th<span class="gt">e</span> <span class="gt">g</span><span class="gt">r</span><span class="gt">e</span><span class="gt">e</span><span class="gt">n</span><span class="gt">f</span><span class="gt">i</span><span class="gt">e</span><span class="gt">l</span><span class="gt">d</span> b<span class="gt">e</span>cam<span class="gt">e</span> a m<span class="gt">e</span>mo<span class="gt">r</span>y, a cut-th<span class="gt">r</span>ou<span class="gt">g</span>h o<span class="gt">n</span> wa<span class="gt">l</span>ks wh<span class="gt">e</span><span class="gt">n</span> w<span class="gt">e</span> <span class="gt">n</span><span class="gt">e</span><span class="gt">e</span><span class="gt">d</span><span class="gt">e</span><span class="gt">d</span> to sav<span class="gt">e</span> t<span class="gt">i</span>m<span class="gt">e</span>, o<span class="gt">r</span> th<span class="gt">e</span> ha<span class="gt">n</span><span class="gt">g</span>out spot <span class="gt">f</span>o<span class="gt">r</span> thos<span class="gt">e</span> t<span class="gt">e</span><span class="gt">e</span><span class="gt">n</span>a<span class="gt">g</span><span class="gt">e</span><span class="gt">r</span>s who w<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span> up to <span class="gt">n</span>o <span class="gt">g</span>oo<span class="gt">d</span>. Maso<span class="gt">n</span> ja<span class="gt">r</span>s a<span class="gt">n</span><span class="gt">d</span> t<span class="gt">i</span><span class="gt">n</span><span class="gt">f</span>o<span class="gt">i</span><span class="gt">l</span> wou<span class="gt">l</span><span class="gt">d</span> b<span class="gt">e</span> <span class="gt">f</span>ou<span class="gt">n</span><span class="gt">d</span> - c<span class="gt">r</span>u<span class="gt">d</span><span class="gt">e</span> bo<span class="gt">n</span><span class="gt">g</span>s <span class="gt">l</span><span class="gt">e</span><span class="gt">f</span>t b<span class="gt">e</span>h<span class="gt">i</span><span class="gt">n</span><span class="gt">d</span> <span class="gt">f</span>o<span class="gt">r</span> th<span class="gt">e</span> <span class="gt">n</span><span class="gt">e</span>w 5th <span class="gt">g</span><span class="gt">r</span>a<span class="gt">d</span><span class="gt">e</span><span class="gt">r</span>s to <span class="gt">f</span><span class="gt">i</span><span class="gt">n</span><span class="gt">d</span> a<span class="gt">n</span><span class="gt">d</span> ask qu<span class="gt">e</span>st<span class="gt">i</span>o<span class="gt">n</span>s about. <span class="gt">E</span>v<span class="gt">e</span><span class="gt">n</span>tua<span class="gt">l</span><span class="gt">l</span>y th<span class="gt">e</span> catta<span class="gt">i</span><span class="gt">l</span>s <span class="gt">d</span><span class="gt">i</span><span class="gt">e</span><span class="gt">d</span>, th<span class="gt">e</span> po<span class="gt">i</span>so<span class="gt">n</span> <span class="gt">i</span>vy <span class="gt">g</span><span class="gt">r</span><span class="gt">e</span>w, a<span class="gt">n</span><span class="gt">d</span> w<span class="gt">e</span> b<span class="gt">e</span>cam<span class="gt">e</span> thos<span class="gt">e</span> t<span class="gt">e</span><span class="gt">e</span><span class="gt">n</span>a<span class="gt">g</span><span class="gt">e</span><span class="gt">r</span>s. W<span class="gt">e</span> took back th<span class="gt">e</span> <span class="gt">f</span><span class="gt">i</span><span class="gt">e</span><span class="gt">l</span><span class="gt">d</span>, <span class="gt">f</span>ou<span class="gt">n</span><span class="gt">d</span> <span class="gt">n</span><span class="gt">e</span>w ways to b<span class="gt">e</span> th<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span>, but t<span class="gt">i</span>m<span class="gt">e</span> <span class="gt">d</span>o<span class="gt">e</span>s<span class="gt">n</span>'t stop, a<span class="gt">n</span><span class="gt">d</span> <span class="gt">e</span>v<span class="gt">e</span><span class="gt">n</span>tua<span class="gt">l</span><span class="gt">l</span>y w<span class="gt">e</span> <span class="gt">g</span><span class="gt">r</span><span class="gt">e</span>w out o<span class="gt">f</span> <span class="gt">i</span>t a<span class="gt">g</span>a<span class="gt">i</span><span class="gt">n</span>. Cov<span class="gt">i</span><span class="gt">d</span> cam<span class="gt">e</span> o<span class="gt">n</span><span class="gt">e</span> <span class="gt">d</span>ay, a<span class="gt">n</span><span class="gt">d</span> su<span class="gt">d</span><span class="gt">d</span><span class="gt">e</span><span class="gt">n</span><span class="gt">l</span>y w<span class="gt">e</span> sat th<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span> a<span class="gt">g</span>a<span class="gt">i</span><span class="gt">n</span>, w<span class="gt">i</span>th ou<span class="gt">r</span> pa<span class="gt">r</span><span class="gt">e</span><span class="gt">n</span>ts <span class="gt">d</span>o<span class="gt">g</span>s, wo<span class="gt">n</span><span class="gt">d</span><span class="gt">e</span><span class="gt">r</span><span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> what ha<span class="gt">d</span> happ<span class="gt">e</span><span class="gt">n</span><span class="gt">e</span><span class="gt">d</span>. Wh<span class="gt">e</span><span class="gt">n</span> <span class="gt">d</span><span class="gt">i</span><span class="gt">d</span> w<span class="gt">e</span> b<span class="gt">e</span>com<span class="gt">e</span> st<span class="gt">r</span>u<span class="gt">g</span><span class="gt">g</span><span class="gt">l</span><span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> a<span class="gt">d</span>u<span class="gt">l</span>ts, sta<span class="gt">n</span><span class="gt">d</span><span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> <span class="gt">i</span><span class="gt">n</span> a <span class="gt">f</span><span class="gt">i</span><span class="gt">e</span><span class="gt">l</span><span class="gt">d</span>, w<span class="gt">i</span>th <span class="gt">d</span>o<span class="gt">g</span>s that w<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span><span class="gt">n</span>'t ou<span class="gt">r</span>s? W<span class="gt">e</span> ha<span class="gt">d</span> <span class="gt">g</span><span class="gt">r</span>a<span class="gt">d</span>uat<span class="gt">e</span><span class="gt">d</span>, <span class="gt">f</span>ou<span class="gt">n</span><span class="gt">d</span> jobs, a<span class="gt">n</span><span class="gt">d</span> y<span class="gt">e</span>t h<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span> w<span class="gt">e</span> w<span class="gt">e</span><span class="gt">r</span><span class="gt">e</span> a<span class="gt">g</span>a<span class="gt">i</span><span class="gt">n</span>, back hom<span class="gt">e</span>, back <span class="gt">i</span><span class="gt">n</span> th<span class="gt">e</span> <span class="gt">f</span><span class="gt">i</span><span class="gt">e</span><span class="gt">l</span><span class="gt">d</span>, back to b<span class="gt">e</span><span class="gt">i</span><span class="gt">n</span><span class="gt">g</span> k<span class="gt">i</span><span class="gt">d</span>s a<span class="gt">g</span>a<span class="gt">i</span><span class="gt">n</span>.
+</div>
+
+<div class="svg-overlay" id="svgOverlay">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465.35 320.23">
+    <path fill="#7B967C" d="M147.22,0c-.17,30.86-3.87,106.27,44.57,140.69,39.73,28.24,180.51-7.63,240.42-56.23,19.29,23.75,44.05,60.76,27.94,103.12-7.49,19.71-22.32,26.11-48.17,55.12-26.82,30.1-38.49,49.26-55.46,77.51-24.31-22.84-46.59-48.73-70.9-71.58-4.86.57-9.72,1.13-14.59,1.7-6.11,1.81-12.21,3.62-18.32,5.43-8.03-3.39-16.06-6.78-24.08-10.18-7.46,4.75-14.93,9.5-22.39,14.25-5.2-14.02-10.4-28.04-15.6-42.06-43.59-34.43-124.49-77.51-150.11-82.77-6.68-8.64-5.77-19.34-22.56-27.48-10.79-5.23-17.98-6.11-17.98-6.11,0,0,71.75,7.46,147.22-101.43Z"/>
+  </svg>
+</div>
+
+<div class="scroll-hint" id="scrollHint">scroll</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">close</button>
+  <div class="lb-inner">
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <div class="lb-text">
+      <div class="lb-date" id="lbDate"></div>
+      <p class="lb-entry loading" id="lbEntry">loading...</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const PHOTOS = [
+  [2.4,26.8,108,144,'fossil42'],
+  [13.0,18.1,40,53,'moss11'],
+  [8.1,34.1,39,52,'fern99'],
+  [8.7,24.6,87,116,'sprout7'],
+  [52.2,48.8,47,63,'lichen3'],
+  [39.1,35.5,219,292,'stone81'],
+  [75.2,13.3,151,201,'bark22'],
+  [64.9,30.0,54,72,'granite55'],
+  [20.0,51.2,119,159,'pebble4'],
+  [8.6,17.8,106,141,'gravel9'],
+  [56.1,53.4,168,224,'flint6'],
+  [49.9,61.7,63,84,'rockface2'],
+  [7.3,27.7,176,235,'texture88'],
+  [53.7,48.2,172,229,'driftwood5'],
+  [61.5,51.7,91,121,'creek12'],
+  [79.6,56.3,49,65,'cattail1'],
+  [25.8,44.8,177,236,'field33'],
+  [15.1,30.8,173,231,'reed44'],
+  [65.3,47.2,65,87,'twig7'],
+  [56.6,21.6,98,131,'soil3'],
+  [15.2,32.0,142,189,'leaf9'],
+  [63.7,55.1,45,60,'peat2'],
+  [21.3,14.6,94,125,'bark7'],
+  [37.3,16.3,35,47,'root5'],
+  [19.7,38.0,160,213,'lichen8'],
+  [13.3,20.0,64,85,'shale4'],
+  [24.4,42.2,217,289,'loam1'],
+  [33.7,62.9,182,243,'fern12'],
+  [47.4,17.5,115,153,'spore6'],
+  [80.1,20.6,92,123,'sedge3'],
+  [73.7,34.1,120,160,'reed7'],
+  [35.8,42.8,41,55,'thorn2'],
+  [49.2,61.6,199,265,'humus4'],
+  [63.2,18.7,82,109,'clay9'],
+  [69.9,51.4,217,289,'silt5'],
+  [10.3,34.7,167,223,'crust8'],
+  [0.3,49.1,196,261,'pebble9'],
+  [90.4,51.1,51,68,'gravel3'],
+  [84.8,56.5,209,279,'cobble2'],
+  [78.3,38.4,35,47,'slate7'],
+  [14.3,51.1,56,75,'flint9'],
+  [88.7,59.1,218,291,'quartz4'],
+  [55.7,37.4,48,64,'basalt1'],
+  [86.4,56.9,108,144,'schist6'],
+  [22.3,25.0,54,72,'gneiss3'],
+  [8.0,37.3,45,60,'pumice8'],
+  [90.9,39.6,47,63,'obsid2'],
+  [12.0,36.8,60,80,'chalk5'],
+  [15.4,39.4,220,293,'marl3'],
+  [89.7,59.4,188,251,'turf4'],
+  [66.3,32.9,131,175,'heath6'],
+  [40.7,38.9,175,233,'sedim7'],
+  [23.0,16.2,110,147,'alluvl2'],
+  [54.7,24.5,65,87,'delta3'],
+];
+
+const IMGS = [
+  'images/IMG_2469.JPEG',
+  'images/IMG_2421.JPEG',
+  'images/IMG_2480.JPEG',
+  'images/IMG_2453.JPEG',
+  'images/IMG_2415.JPEG',
+  'images/IMG_2488.JPEG',
+  'images/IMG_2402.JPEG',
+  'images/IMG_2454.JPEG',
+  'images/IMG_2449.JPEG',
+  'images/IMG_2379.JPEG',
+  'images/IMG_2388.JPEG',
+  'images/IMG_2429.JPEG',
+  'images/IMG_2450.JPEG',
+  'images/IMG_2490.JPEG',
+  'images/IMG_2459.JPEG',
+  'images/IMG_2322.JPEG',
+  'images/IMG_2419.JPEG',
+  'images/IMG_2483.JPEG',
+  'images/IMG_2325.JPEG',
+  'images/IMG_2497.JPEG',
+  'images/IMG_2383.JPEG',
+  'images/IMG_2465.JPEG',
+  'images/IMG_2423.JPEG',
+  'images/IMG_2474.JPEG',
+  'images/IMG_2432.JPEG',
+  'images/IMG_2313.JPEG',
+  'images/IMG_2434.JPEG',
+  'images/IMG_2485.JPEG',
+  'images/IMG_2413.JPEG',
+  'images/IMG_2463.JPEG',
+  'images/IMG_2494.JPEG',
+  'images/IMG_2440.JPEG',
+  'images/IMG_2391.JPEG',
+  'images/IMG_2467.JPEG',
+  'images/IMG_2457.JPEG',
+  'images/IMG_2492.JPEG',
+  'images/IMG_2393.JPEG',
+  'images/IMG_2476.JPEG',
+  'images/IMG_2493.JPEG',
+  'images/IMG_2321.JPEG',
+  'images/IMG_2446.JPEG',
+  'images/IMG_2466.JPEG',
+  'images/IMG_2330.JPEG',
+  'images/IMG_2462.JPEG',
+  'images/IMG_2479.JPEG',
+  'images/IMG_2335.JPEG',
+  'images/IMG_2364.JPEG',
+  'images/IMG_2396.JPEG',
+  'images/IMG_2399.JPEG',
+  'images/IMG_2405.JPEG',
+  'images/IMG_2487.JPEG',
+  'images/IMG_2315.JPEG',
+  'images/IMG_2351.JPEG',
+  'images/IMG_2472.JPEG'
+];
+const scene = document.getElementById('scene');
+PHOTOS.forEach(([l,t,w,h], i) => {
+  const d = document.createElement('div');
+  d.className = 'photo';
+  // Small random rotation for the "photos on a table" feel
+  const rot = (Math.random() * 8 - 4).toFixed(2);
+  d.style.cssText = `left:${l}%;top:${t}%;width:${w}px;height:${h}px;transform:rotate(${rot}deg);`;
+  d.dataset.baseRot = rot;
+  if (Math.random() < 0.35) {
+    const pad = Math.floor(Math.random() * 18) + 8;
+    d.style.padding = pad + 'px';
+    d.style.background = '#f4f1ea';
+    d.style.width  = (w + pad * 2) + 'px';
+    d.style.height = (h + pad * 2) + 'px';
+  }
+  const img = document.createElement('img');
+  img.src = IMGS[i % IMGS.length];
+  d.appendChild(img);
+  scene.insertBefore(d, scene.firstChild);
+});
+
+// ── Drag-to-move + click-to-open ─────────────────────────────────────────────
+let dragEl = null, dragStartX, dragStartY, dragStartLeft, dragStartTop;
+let dragMoved = false;
+let highZ = 50;
+
+function pointerDown(e) {
+  const photo = e.target.closest('.photo');
+  if (!photo) return;
+  // Don't block lightbox close button
+  if (e.target.closest('.lb-close')) return;
+  e.preventDefault();
+
+  dragEl    = photo;
+  dragMoved = false;
+
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const rect      = photo.getBoundingClientRect();
+  const sceneRect = scene.getBoundingClientRect();
+
+  dragStartX    = clientX;
+  dragStartY    = clientY;
+  dragStartLeft = rect.left - sceneRect.left;
+  dragStartTop  = rect.top  - sceneRect.top;
+
+  // Pixel-position the element so it can be dragged freely
+  photo.style.left = dragStartLeft + 'px';
+  photo.style.top  = dragStartTop  + 'px';
+
+  // Bring to front
+  photo.style.zIndex = ++highZ;
+
+  // Tilt slightly while picked up
+  const base = parseFloat(photo.dataset.baseRot) || 0;
+  photo.style.transform = `rotate(${(base + 2).toFixed(1)}deg) scale(1.03)`;
+  photo.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease';
+  photo.style.boxShadow  = '0 12px 32px rgba(0,0,0,0.22)';
+}
+
+function pointerMove(e) {
+  if (!dragEl) return;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const dx = clientX - dragStartX;
+  const dy = clientY - dragStartY;
+  if (Math.abs(dx) > 4 || Math.abs(dy) > 4) dragMoved = true;
+  dragEl.style.left = (dragStartLeft + dx) + 'px';
+  dragEl.style.top  = (dragStartTop  + dy) + 'px';
+}
+
+function pointerUp() {
+  if (!dragEl) return;
+  const base = parseFloat(dragEl.dataset.baseRot) || 0;
+  dragEl.style.transform  = `rotate(${base}deg)`;
+  dragEl.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+  dragEl.style.boxShadow  = '';
+  if (!dragMoved) {
+    const img = dragEl.querySelector('img');
+    openLightbox(img.src);
+  }
+  dragEl = null;
+}
+
+scene.addEventListener('mousedown',  pointerDown);
+scene.addEventListener('touchstart', pointerDown, { passive: false });
+document.addEventListener('mousemove',  pointerMove);
+document.addEventListener('touchmove',  pointerMove, { passive: false });
+document.addEventListener('mouseup',    pointerUp);
+document.addEventListener('touchend',   pointerUp);
+
+const svgOverlay = document.getElementById('svgOverlay');
+const scrollHint = document.getElementById('scrollHint');
+const easeOut = t => 1 - Math.pow(1-t, 3);
+
+// ── Smooth blob + color reveal via rAF ───────────────────────────────────────
+let targetT  = 0;   // where scroll says we should be
+let currentT = 0;   // where we actually are (lerped)
+let rafId    = null;
+
+function lerp(a, b, f) { return a + (b - a) * f; }
+
+function animate() {
+  // Lerp toward target — 0.08 = smooth, increase for snappier
+  currentT = lerp(currentT, targetT, 0.05);
+
+  const ty = 100 - currentT * 85;
+  svgOverlay.style.transform = `translateX(-50%) translateY(${ty.toFixed(3)}%)`;
+  document.documentElement.style.setProperty('--color-reveal', currentT.toFixed(2));
+
+  // Keep looping until settled
+  if (Math.abs(currentT - targetT) > 0.0002) {
+    rafId = requestAnimationFrame(animate);
+  } else {
+    currentT = targetT;
+    rafId = null;
+  }
+}
+
+window.addEventListener('scroll', () => {
+  const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+  const raw = Math.max(0, Math.min(1, (p - 0.10) / 0.62));
+  targetT = easeOut(raw);
+
+  scrollHint.style.opacity = Math.max(0, 1 - p * 12);
+
+  // Kick off rAF loop if not already running
+  if (!rafId) rafId = requestAnimationFrame(animate);
+}, { passive: true });
+
+// ── Lightbox ─────────────────────────────────────────────────────────────────
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lbImg');
+const lbEntry  = document.getElementById('lbEntry');
+const lbDate   = document.getElementById('lbDate');
+const lbClose  = document.getElementById('lbClose');
+
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fakeDate() {
+  const y = 2023 + Math.floor(Math.random() * 2);
+  const m = months[Math.floor(Math.random() * 12)];
+  const d = String(Math.floor(Math.random() * 28) + 1).padStart(2,'0');
+  return `${m} ${d}, ${y}`;
+}
+
+async function openLightbox(src) {
+  lbImg.src = src;
+  lbDate.textContent = fakeDate();
+  lbEntry.textContent = 'loading...';
+  lbEntry.className = 'lb-entry loading';
+  lightbox.classList.add('open');
+
+  try {
+    // Read image as base64
+    const resp = await fetch(src);
+    const blob = await resp.blob();
+    const base64 = await new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload  = () => res(r.result.split(',')[1]);
+      r.onerror = rej;
+      r.readAsDataURL(blob);
+    });
+
+    // Ask Claude for a journal entry
+    const apiResp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: base64 } },
+            { type: 'text', text: 'Write a short, intimate field journal entry (3–4 sentences) about this photograph, as if written by someone who paused to notice this specific thing on a walk through a greenfield or natural area. Be sensory, personal and quiet in tone — no grand statements. No date, no title, just the entry text.' }
+          ]
+        }]
+      })
+    });
+
+    const data = await apiResp.json();
+    lbEntry.textContent = data.content[0].text;
+    lbEntry.className = 'lb-entry';
+  } catch (err) {
+    lbEntry.textContent = 'Could not load journal entry.';
+    lbEntry.className = 'lb-entry';
+  }
+}
+
+lbClose.addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) lightbox.classList.remove('open');
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+});
+</script>
+
+</body>
+</html>

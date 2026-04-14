@@ -1,0 +1,38 @@
+h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#main_container {
+   width: 30%;
+   position: relative; 
+   border-style: dotted;
+   border-color:blue;
+   border-width: 5px;
+   
+   /*margin-left: auto;
+    margin-right: auto;*/
+}
+
+#second_container {
+   width: 30%;
+  position: relative; 
+   top: 100px;
+   left: 300px;
+   margin-right: 3%;
+   border-style: dashed;
+   border-color: orange;
+   border-width: 5px;
+   
+}
+
+#third_container {
+   width: 30%;
+   position: relative;
+   border-style: groove;
+   border-color: greenyellow;
+   border-width: 5px;
+  
+   
+}
